@@ -40,6 +40,12 @@ describe('Kissmetrics tests', () => {
     expect(global._kmq).to.deep.equal([['identify', 'bob']]);
   });
 
+  it('should add an item to the queue on the global scope when clearing an identity', () => {
+    KissMetrics.setKey('an example key');
+    KissMetrics.clearIdentity();
+    expect(global._kmq).to.deep.equal([['clearIdentity']]);
+  });
+
   it('should add an item to the queue on the global scope when tracking an event', () => {
     KissMetrics.setKey('an example key');
     KissMetrics.trackEvent('blah');

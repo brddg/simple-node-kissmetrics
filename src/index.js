@@ -117,6 +117,14 @@ export function identify(identity) {
   context._kmq.push(['identify', identity]);
 }
 
+/**
+ * Clear an identity in KISSmetrics
+ */
+export function clearIdentity(identity) {
+  setup();
+  context._kmq.push(['clearIdentity']);
+}
+
 export default {
-  trackEvent, setKey, setUserProperties, setup, identify
+  trackEvent, setKey, setUserProperties, setup, identify, clearIdentity
 };
